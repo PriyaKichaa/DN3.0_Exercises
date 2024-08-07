@@ -1,0 +1,8 @@
+CREATE OR REPLACE TRIGGER UpdateCustomerLastModified
+BEFORE UPDATE ON Customers
+FOR EACH ROW
+BEGIN
+    -- Set the LastModified timestamp to the current date and time before updating the record
+    :NEW.LastModified := SYSDATE;
+END UpdateCustomerLastModified;
+/
